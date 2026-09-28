@@ -152,3 +152,34 @@ grep -ao "==\{2,\} \w*" data.txt
 `ssh bandit10@bandit.labs.overthewire.org -p 2220`
 ### Password
 `B0s2khmbT9u0geKuOoVGW3JZKhndE3BG`
+
+## [10 -> 11](https://overthewire.org/wargames/bandit/bandit11.html)
+### Solution
+```bash
+base64 -d data.txt
+```
+### Next
+`ssh bandit11@bandit.labs.overthewire.org -p 2220`
+### Password
+`pYfOY6HwUsDj5rL9UvyhU7MCmv8vN5Ro`
+
+## [11 -> 12](https://overthewire.org/wargames/bandit/bandit12.html)
+### Solution
+```bash
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
+* Translate characters from alphabetic ordered input (data.exe) to the alphabet shifted by 13
+![](11.png)
+### Next
+`ssh bandit12@bandit.labs.overthewire.org -p 2220`
+### Password
+`GROozWPO8QyN0mGrjUkID0WCYkZiQxrN`
+
+<!-- ## [12 -> 13](https://overthewire.org/wargames/bandit/bandit13html)
+### Solution
+```bash
+```
+### Next
+`ssh bandit13@bandit.labs.overthewire.org -p 2220`
+### Password
+`` -->
