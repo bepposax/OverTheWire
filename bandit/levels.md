@@ -15,8 +15,6 @@ cat readme
 ```
 ### Next
 `ssh bandit1@bandit.labs.overthewire.org -p 2220`
-### Password
-`6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR`
 
 ## [1 -> 2](https://overthewire.org/wargames/bandit/bandit2.html)
 ### Solution
@@ -26,8 +24,6 @@ cat ./-
 ```
 ### Next
 `ssh bandit2@bandit.labs.overthewire.org -p 2220`
-### Password
-`PK8fYLZg2hnHSz83plBL1iEPKdD3QToB`
 
 ## [2 -> 3](https://overthewire.org/wargames/bandit/bandit3.html)
 ### Solution
@@ -36,8 +32,6 @@ cat ./"--spaces in this filename--"
 ```
 ### Next
 `ssh bandit3@bandit.labs.overthewire.org -p 2220`
-### Password
-`7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME`
 
 ## [3 -> 4](https://overthewire.org/wargames/bandit/bandit4.html)
 ### Solution
@@ -48,8 +42,6 @@ cat ...Hiding-From-You
 ```
 ### Next
 `ssh bandit4@bandit.labs.overthewire.org -p 2220`
-### Password
-`xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq`
 
 ## [4 -> 5](https://overthewire.org/wargames/bandit/bandit5.html)
 ### Solution
@@ -71,8 +63,6 @@ cat ./-file07
 ```
 ### Next
 `ssh bandit5@bandit.labs.overthewire.org -p 2220`
-### Password
-`6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG`
 
 ## [5 -> 6](https://overthewire.org/wargames/bandit/bandit6.html)
 ### Solution
@@ -95,8 +85,6 @@ cat $(!!)
 In this case it expands to `cat $(find -type f -size 1033c)`
 ### Next
 `ssh bandit6@bandit.labs.overthewire.org -p 2220`
-### Password
-`pXa26xhMWaC2SvDotA4r9EgZkulOeSBW`
 
 ## [6 -> 7](https://overthewire.org/wargames/bandit/bandit7.html)
 ### Solution
@@ -110,8 +98,6 @@ cat $(!!)
 ```
 ### Next
 `ssh bandit7@bandit.labs.overthewire.org -p 2220`
-### Password
-`Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3`
 
 ## [7 -> 8](https://overthewire.org/wargames/bandit/bandit8.html)
 ### Solution
@@ -120,8 +106,6 @@ grep "millionth" data.txt
 ```
 ### Next
 `ssh bandit8@bandit.labs.overthewire.org -p 2220`
-### Password
-`VR1ljMayciFxbnUokuQmJFw6QC9VKtub`
 
 ## [8 -> 9](https://overthewire.org/wargames/bandit/bandit9.html)
 ### Solution
@@ -132,8 +116,6 @@ sort data.txt | uniq -u
 * `-d` ignores duplicates and only prints unique lines
 ### Next
 `ssh bandit9@bandit.labs.overthewire.org -p 2220`
-### Password
-`EjmOSvuAu7sGAHqHVcBDPirRe9T03kxl`
 
 ## [9 -> 10](https://overthewire.org/wargames/bandit/bandit10.html)
 ### Solution
@@ -150,8 +132,6 @@ grep -ao "==\{2,\} \w*" data.txt
 ```
 ### Next
 `ssh bandit10@bandit.labs.overthewire.org -p 2220`
-### Password
-`B0s2khmbT9u0geKuOoVGW3JZKhndE3BG`
 
 ## [10 -> 11](https://overthewire.org/wargames/bandit/bandit11.html)
 ### Solution
@@ -160,8 +140,6 @@ base64 -d data.txt
 ```
 ### Next
 `ssh bandit11@bandit.labs.overthewire.org -p 2220`
-### Password
-`pYfOY6HwUsDj5rL9UvyhU7MCmv8vN5Ro`
 
 ## [11 -> 12](https://overthewire.org/wargames/bandit/bandit12.html)
 ### Solution
@@ -169,11 +147,9 @@ base64 -d data.txt
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 * Translate characters from alphabetic ordered input (data.exe) to the alphabet shifted by 13
-![](11.png)
+![](img/11.png)
 ### Next
 `ssh bandit12@bandit.labs.overthewire.org -p 2220`
-### Password
-`GROozWPO8QyN0mGrjUkID0WCYkZiQxrN`
 
 <!-- ## [12 -> 13](https://overthewire.org/wargames/bandit/bandit13html)
 ### Solution
@@ -181,5 +157,3 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 ### Next
 `ssh bandit13@bandit.labs.overthewire.org -p 2220`
-### Password
-`` -->
