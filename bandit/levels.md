@@ -1,50 +1,41 @@
-# Over the Wire - Bandit levels
+# Bandit
 
-## [0](https://overthewire.org/wargames/bandit/bandit0.html)
-### Solution
+## Bookmark
+`ssh bandit12@bandit.labs.overthewire.org -p 2220`
+
+## Levels
+
+### [0](https://overthewire.org/wargames/bandit/bandit0.html)
 Connect to ssh with username **bandit0** 
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 
-## [0 -> 1](https://overthewire.org/wargames/bandit/bandit1.html)
-### Solution
+### [0 -> 1](https://overthewire.org/wargames/bandit/bandit1.html)
 Read the `readme` file in the home directory
 ```bash
 cat readme
 ```
-### Next
-`ssh bandit1@bandit.labs.overthewire.org -p 2220`
 
-## [1 -> 2](https://overthewire.org/wargames/bandit/bandit2.html)
-### Solution
+### [1 -> 2](https://overthewire.org/wargames/bandit/bandit2.html)
 Read the file `-` by using the full path
 ```bash
 cat ./-
 ```
-### Next
-`ssh bandit2@bandit.labs.overthewire.org -p 2220`
 
-## [2 -> 3](https://overthewire.org/wargames/bandit/bandit3.html)
-### Solution
+### [2 -> 3](https://overthewire.org/wargames/bandit/bandit3.html)
 ```bash
 cat ./"--spaces in this filename--"
 ```
-### Next
-`ssh bandit3@bandit.labs.overthewire.org -p 2220`
 
-## [3 -> 4](https://overthewire.org/wargames/bandit/bandit4.html)
-### Solution
+### [3 -> 4](https://overthewire.org/wargames/bandit/bandit4.html)
 ```bash
 cd inhere
 ls -a
 cat ...Hiding-From-You
 ```
-### Next
-`ssh bandit4@bandit.labs.overthewire.org -p 2220`
 
-## [4 -> 5](https://overthewire.org/wargames/bandit/bandit5.html)
-### Solution
+### [4 -> 5](https://overthewire.org/wargames/bandit/bandit5.html)
 ```bash
 file ./*
 ./-file00: data
@@ -61,11 +52,8 @@ file ./*
 ```bash
 cat ./-file07
 ```
-### Next
-`ssh bandit5@bandit.labs.overthewire.org -p 2220`
 
-## [5 -> 6](https://overthewire.org/wargames/bandit/bandit6.html)
-### Solution
+### [5 -> 6](https://overthewire.org/wargames/bandit/bandit6.html)
 ```bash
 cd inhere
 ls
@@ -83,11 +71,8 @@ cat $(!!)
 ```
 * The `$(!!)` shortcut recomputes the last command.  
 In this case it expands to `cat $(find -type f -size 1033c)`
-### Next
-`ssh bandit6@bandit.labs.overthewire.org -p 2220`
 
-## [6 -> 7](https://overthewire.org/wargames/bandit/bandit7.html)
-### Solution
+### [6 -> 7](https://overthewire.org/wargames/bandit/bandit7.html)
 ```bash
 find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
 /var/lib/dpkg/info/bandit7.password
@@ -96,29 +81,20 @@ find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
 ```bash
 cat $(!!)
 ```
-### Next
-`ssh bandit7@bandit.labs.overthewire.org -p 2220`
 
-## [7 -> 8](https://overthewire.org/wargames/bandit/bandit8.html)
-### Solution
+### [7 -> 8](https://overthewire.org/wargames/bandit/bandit8.html)
 ```bash
 grep "millionth" data.txt
 ```
-### Next
-`ssh bandit8@bandit.labs.overthewire.org -p 2220`
 
-## [8 -> 9](https://overthewire.org/wargames/bandit/bandit9.html)
-### Solution
+### [8 -> 9](https://overthewire.org/wargames/bandit/bandit9.html)
 ```bash
 sort data.txt | uniq -u
 ```
 * `uniq` filters only adjacent lines. So we need to `sort` them first
 * `-d` ignores duplicates and only prints unique lines
-### Next
-`ssh bandit9@bandit.labs.overthewire.org -p 2220`
 
-## [9 -> 10](https://overthewire.org/wargames/bandit/bandit10.html)
-### Solution
+### [9 -> 10](https://overthewire.org/wargames/bandit/bandit10.html)
 ```bash
 grep -ao "==\{2,\} \w*" data.txt
 ```
@@ -130,30 +106,15 @@ grep -ao "==\{2,\} \w*" data.txt
 ========== is
 ========== B0s2khmbT9u0geKuOoVGW3JZKhndE3BG
 ```
-### Next
-`ssh bandit10@bandit.labs.overthewire.org -p 2220`
 
-## [10 -> 11](https://overthewire.org/wargames/bandit/bandit11.html)
-### Solution
+### [10 -> 11](https://overthewire.org/wargames/bandit/bandit11.html)
 ```bash
 base64 -d data.txt
 ```
-### Next
-`ssh bandit11@bandit.labs.overthewire.org -p 2220`
 
-## [11 -> 12](https://overthewire.org/wargames/bandit/bandit12.html)
-### Solution
+### [11 -> 12](https://overthewire.org/wargames/bandit/bandit12.html)
 ```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 * Translate characters from alphabetic ordered input (data.exe) to the alphabet shifted by 13
 ![](img/11.png)
-### Next
-`ssh bandit12@bandit.labs.overthewire.org -p 2220`
-
-<!-- ## [12 -> 13](https://overthewire.org/wargames/bandit/bandit13html)
-### Solution
-```bash
-```
-### Next
-`ssh bandit13@bandit.labs.overthewire.org -p 2220`
