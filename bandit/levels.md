@@ -1,8 +1,5 @@
 # Bandit
 
-## Bookmark
-`ssh bandit12@bandit.labs.overthewire.org -p 2220`
-
 ## Levels
 
 ### [0](https://overthewire.org/wargames/bandit/bandit0.html)
@@ -201,3 +198,22 @@ data: ASCII text
 
 cat data
 ```
+
+### [13 -> 14](https://overthewire.org/wargames/bandit/bandit14.html)
+```bash
+ls
+HINT  sshkey.private
+
+cat sshkey.private
+```
+* copy the key
+```bash
+exit
+echo "(paste the key)" >> sshkey.private
+```
+* `exit` first to connect to the server from local
+```bash
+chmod 0600 sshkey.private
+ssh -i './sshkey.private' bandit14@bandit.labs.overthewire.org -p 2220
+```
+* `chmod 0600`: protect the private key file
