@@ -1,5 +1,10 @@
 # Bandit
 
+## Bookmark
+```bash
+ssh bandit14@bandit.labs.overthewire.org -p 2220
+```
+
 ## Levels
 
 ### [0](https://overthewire.org/wargames/bandit/bandit0.html)
