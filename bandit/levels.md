@@ -118,3 +118,86 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 * Translate characters from alphabetic ordered input (data.exe) to the alphabet shifted by 13
 ![](img/11.png)
+
+### [12 -> 13](https://overthewire.org/wargames/bandit/bandit13.html)
+```bash
+mktemp -d
+/tmp/tmp.a5Mw7cDrIa
+
+cd /tmp/tmp.a5Mw7cDrIa
+cp ~/data.txt .
+xxd -r data.txt >> data
+```
+* `xxd -r`: reverts an hex dump into the original file
+```bash
+file data
+data: gzip compressed data, was "data2.bin", last modified: Sat Sep 26 21:54:21 2026, max compression, from Unix, original size modulo 2^32 584
+
+mv data data.gz && gzip -d data.gz
+ls
+data  data.txt
+```
+* `gzip -d`: decompress option for gzip
+```bash
+file data
+data: bzip2 compressed data, block size = 900k
+
+mv data data.bz2 && bzip2 -d data.bz2
+ls
+data  data.txt
+```
+* `bzip2 -d` decompress option for bzip2
+```bash
+file data
+data: gzip compressed data, was "data4.bin", last modified: Sat Sep 26 21:54:21 2026, max compression, from Unix, original size modulo 2^32 20480
+
+mv data data.gz && gzip -d data.gz
+ls
+data  data.txt
+file data
+data: POSIX tar archive (GNU)
+
+mv data data.tar && tar -xf data.tar
+ls
+data.tar  data.txt  data5.bin
+
+rm data.tar
+```
+* `tar -x`: extract option for tar
+* `tar -f`: the file to extract from
+```bash
+file data5.bin
+data5.bin: POSIX tar archive (GNU)
+
+tar -xf data5.bin
+ls
+data.txt  data5.bin  data6.bin
+
+rm data5.bin
+file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+
+mv data6.bin data.bz2 && bzip2 -d data.bz2
+ls
+data  data.txt
+
+file data
+data: POSIX tar archive (GNU)
+
+tar -xf data
+ls
+data  data.txt  data8.bin
+
+rm data
+file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Sat Sep 26 21:54:21 2026, max compression, from Unix, original size modulo 2^32 49
+
+mv data8.bin data.gz && gzip -d data.gz
+ls
+data  data.txt
+
+file data
+data: ASCII text
+
+cat data
+```
