@@ -106,7 +106,7 @@ grep -ao "==\{2,\} \w*" data.txt
 ========== the
 ========== password
 ========== is
-========== B0s2khmbT9u0geKuOoVGW3JZKhndE3BG
+========== (password)
 ```
 
 ### [10 -> 11](https://overthewire.org/wargames/bandit/bandit11.html)
