@@ -2,7 +2,7 @@
 
 ## Bookmark
 ```bash
-ssh bandit14@bandit.labs.overthewire.org -p 2220
+ssh bandit17@bandit.labs.overthewire.org -p 2220
 ```
 
 ## Levels
@@ -94,7 +94,7 @@ grep "millionth" data.txt
 sort data.txt | uniq -u
 ```
 * `uniq` filters only adjacent lines. So we need to `sort` them first
-* `-d` ignores duplicates and only prints unique lines
+* `-u` ignores duplicates and only prints unique lines
 
 ### [9 -> 10](https://overthewire.org/wargames/bandit/bandit10.html)
 ```bash
@@ -222,3 +222,98 @@ chmod 0600 sshkey.private
 ssh -i './sshkey.private' bandit14@bandit.labs.overthewire.org -p 2220
 ```
 * `chmod 0600`: protect the private key file
+```bash
+whoami
+bandit14
+
+cat /etc/bandit_pass/bandit14
+```
+
+### [14 -> 15](https://overthewire.org/wargames/bandit/bandit15.html)
+```bash
+telnet localhost 30000
+Trying 127.0.0.1...
+Connected to localhost.
+```
+* Type lvl 14 password
+```bash
+Correct!
+[New password]
+```
+
+### [15 -> 16](https://overthewire.org/wargames/bandit/bandit16.html)
+```bash
+openssl s_client localhost:30001
+Connecting to 127.0.0.1
+CONNECTED(00000003)
+(...)
+```
+* Type lvl 15 password
+```bash
+Correct!
+[New password]
+
+closed
+```
+
+### [16 -> 17](https://overthewire.org/wargames/bandit/bandit17.html)
+```bash
+nc -z localhost 31000-32000 2>&1 | grep -o "[0-9]\{5\}"
+31046
+31518
+31691
+31790
+31960
+```
+* `2>&1`: nc reports to stderr. This changes it to stdin so grep can read it
+* Iterate `openssl s_client -p [port]`. 31518 and 31790 respond.
+```bash
+openssl s_client localhost:31518
+Connecting to 127.0.0.1
+CONNECTED(00000003)
+(...)
+hi
+hi
+closed
+
+openssl s_client localhost:31790
+Connecting to 127.0.0.1
+CONNECTED(00000003)
+hi
+Wrong! Please enter the correct current password.
+closed
+```
+* 31518 responds whatever it receives. Focus on 31790
+```bash
+openssl s_client localhost:31790
+Connecting to 127.0.0.1
+CONNECTED(00000003)
+[lvl 16 password]
+KEYUPDATE
+```
+* Check `man openssl-s_client`
+```bash
+openssl s_client -nocommands localhost:31790
+[lvl 16 password]
+Correct!
+-----BEGIN OPENSSH PRIVATE KEY-----
+(...)
+-----END OPENSSH PRIVATE KEY-----
+
+closed
+``` 
+* **Why did it work?** The level 16 password starts with `k` which is interpreted as the `key update` command and the rest of the line is ignored.
+* To avoid entering in interactive mode we use the `-nocommands` flag
+```bash
+exit
+
+echo "[pasted key]" >> key.private
+cat key.private
+
+chmod 600 key.private
+ssh bandit17@bandit.labs.overthewire.org -p 2220 -i key.private
+
+whoami
+bandit17
+cat /etc/bandit_pass/bandit17
+```
