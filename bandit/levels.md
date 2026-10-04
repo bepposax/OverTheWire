@@ -2,7 +2,7 @@
 
 ## Bookmark
 ```bash
-ssh bandit17@bandit.labs.overthewire.org -p 2220
+ssh bandit18@bandit.labs.overthewire.org -p 2220
 ```
 
 ## Levels
@@ -316,4 +316,9 @@ ssh bandit17@bandit.labs.overthewire.org -p 2220 -i key.private
 whoami
 bandit17
 cat /etc/bandit_pass/bandit17
+```
+
+### [16 -> 17](https://overthewire.org/wargames/bandit/bandit17.html)
+```bash
+diff passwords.* -y --suppress-common-lines
 ```
