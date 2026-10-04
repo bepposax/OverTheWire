@@ -318,7 +318,7 @@ bandit17
 cat /etc/bandit_pass/bandit17
 ```
 
-### [16 -> 17](https://overthewire.org/wargames/bandit/bandit17.html)
+### [17 -> 18](https://overthewire.org/wargames/bandit/bandit18.html)
 ```bash
 diff passwords.* -y --suppress-common-lines
 ```
