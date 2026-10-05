@@ -322,3 +322,19 @@ cat /etc/bandit_pass/bandit17
 ```bash
 diff passwords.* -y --suppress-common-lines
 ```
+
+### [18 -> 19](https://overthewire.org/wargames/bandit/bandit19.html)
+```bash
+ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
+```
+* from `man ssh`: If a command is specified, it will be executed on the remote host instead of a login shell
+* When that happens, `ssh` opens a non-interactive shell
+* `.bashrc` contains a guard for non interactive shell:
+```bash
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+```
+* that blocks the execution of the rest of the script, where the logout command is located
+* the command gets executed and the connection ends
