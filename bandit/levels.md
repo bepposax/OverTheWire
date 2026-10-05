@@ -1,7 +1,7 @@
 # Bandit
 
 ## Bookmark
-```bash
+```shell
 ssh bandit18@bandit.labs.overthewire.org -p 2220
 ```
 
@@ -9,36 +9,36 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220
 
 ### [0](https://overthewire.org/wargames/bandit/bandit0.html)
 Connect to ssh with username **bandit0** 
-```bash
+```shell
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 
 ### [0 -> 1](https://overthewire.org/wargames/bandit/bandit1.html)
 Read the `readme` file in the home directory
-```bash
+```shell
 cat readme
 ```
 
 ### [1 -> 2](https://overthewire.org/wargames/bandit/bandit2.html)
 Read the file `-` by using the full path
-```bash
+```shell
 cat ./-
 ```
 
 ### [2 -> 3](https://overthewire.org/wargames/bandit/bandit3.html)
-```bash
+```shell
 cat ./"--spaces in this filename--"
 ```
 
 ### [3 -> 4](https://overthewire.org/wargames/bandit/bandit4.html)
-```bash
+```shell
 cd inhere
 ls -a
 cat ...Hiding-From-You
 ```
 
 ### [4 -> 5](https://overthewire.org/wargames/bandit/bandit5.html)
-```bash
+```shell
 file ./*
 ./-file00: data
 ./-file01: data
@@ -51,12 +51,12 @@ file ./*
 ./-file08: data
 ./-file09: data
 ```
-```bash
+```shell
 cat ./-file07
 ```
 
 ### [5 -> 6](https://overthewire.org/wargames/bandit/bandit6.html)
-```bash
+```shell
 cd inhere
 ls
 maybehere00  maybehere04  maybehere08  maybehere12  maybehere16
@@ -64,40 +64,40 @@ maybehere01  maybehere05  maybehere09  maybehere13  maybehere17
 maybehere02  maybehere06  maybehere10  maybehere14  maybehere18
 maybehere03  maybehere07  maybehere11  maybehere15  maybehere19
 ```
-```bash
+```shell
 find -type f -size 1033c
 ./maybehere07/.file2
 ```
-```bash
+```shell
 cat $(!!)
 ```
 * The `$(!!)` shortcut recomputes the last command.  
 In this case it expands to `cat $(find -type f -size 1033c)`
 
 ### [6 -> 7](https://overthewire.org/wargames/bandit/bandit7.html)
-```bash
+```shell
 find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
 /var/lib/dpkg/info/bandit7.password
 ```
 * `2>/dev/null` hides all the 'Permission denied' files output
-```bash
+```shell
 cat $(!!)
 ```
 
 ### [7 -> 8](https://overthewire.org/wargames/bandit/bandit8.html)
-```bash
+```shell
 grep "millionth" data.txt
 ```
 
 ### [8 -> 9](https://overthewire.org/wargames/bandit/bandit9.html)
-```bash
+```shell
 sort data.txt | uniq -u
 ```
 * `uniq` filters only adjacent lines. So we need to `sort` them first
 * `-u` ignores duplicates and only prints unique lines
 
 ### [9 -> 10](https://overthewire.org/wargames/bandit/bandit10.html)
-```bash
+```shell
 grep -ao "==\{2,\} \w*" data.txt
 ```
 * `-a` reads a binary file as text
@@ -110,19 +110,19 @@ grep -ao "==\{2,\} \w*" data.txt
 ```
 
 ### [10 -> 11](https://overthewire.org/wargames/bandit/bandit11.html)
-```bash
+```shell
 base64 -d data.txt
 ```
 
 ### [11 -> 12](https://overthewire.org/wargames/bandit/bandit12.html)
-```bash
+```shell
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 * Translate characters from alphabetic ordered input (data.exe) to the alphabet shifted by 13
 ![](img/11.png)
 
 ### [12 -> 13](https://overthewire.org/wargames/bandit/bandit13.html)
-```bash
+```shell
 mktemp -d
 /tmp/tmp.a5Mw7cDrIa
 
@@ -131,7 +131,7 @@ cp ~/data.txt .
 xxd -r data.txt >> data
 ```
 * `xxd -r`: reverts an hex dump into the original file
-```bash
+```shell
 file data
 data: gzip compressed data, was "data2.bin", last modified: Sat Sep 26 21:54:21 2026, max compression, from Unix, original size modulo 2^32 584
 
@@ -140,7 +140,7 @@ ls
 data  data.txt
 ```
 * `gzip -d`: decompress option for gzip
-```bash
+```shell
 file data
 data: bzip2 compressed data, block size = 900k
 
@@ -149,7 +149,7 @@ ls
 data  data.txt
 ```
 * `bzip2 -d` decompress option for bzip2
-```bash
+```shell
 file data
 data: gzip compressed data, was "data4.bin", last modified: Sat Sep 26 21:54:21 2026, max compression, from Unix, original size modulo 2^32 20480
 
@@ -167,7 +167,7 @@ rm data.tar
 ```
 * `tar -x`: extract option for tar
 * `tar -f`: the file to extract from
-```bash
+```shell
 file data5.bin
 data5.bin: POSIX tar archive (GNU)
 
@@ -205,24 +205,24 @@ cat data
 ```
 
 ### [13 -> 14](https://overthewire.org/wargames/bandit/bandit14.html)
-```bash
+```shell
 ls
 HINT  sshkey.private
 
 cat sshkey.private
 ```
 * copy the key
-```bash
+```shell
 exit
 echo "(paste the key)" >> sshkey.private
 ```
 * `exit` first to connect to the server from local
-```bash
+```shell
 chmod 0600 sshkey.private
 ssh -i './sshkey.private' bandit14@bandit.labs.overthewire.org -p 2220
 ```
 * `chmod 0600`: protect the private key file
-```bash
+```shell
 whoami
 bandit14
 
@@ -230,26 +230,26 @@ cat /etc/bandit_pass/bandit14
 ```
 
 ### [14 -> 15](https://overthewire.org/wargames/bandit/bandit15.html)
-```bash
+```shell
 telnet localhost 30000
 Trying 127.0.0.1...
 Connected to localhost.
 ```
 * Type lvl 14 password
-```bash
+```shell
 Correct!
 [New password]
 ```
 
 ### [15 -> 16](https://overthewire.org/wargames/bandit/bandit16.html)
-```bash
+```shell
 openssl s_client localhost:30001
 Connecting to 127.0.0.1
 CONNECTED(00000003)
 (...)
 ```
 * Type lvl 15 password
-```bash
+```shell
 Correct!
 [New password]
 
@@ -257,7 +257,7 @@ closed
 ```
 
 ### [16 -> 17](https://overthewire.org/wargames/bandit/bandit17.html)
-```bash
+```shell
 nc -z localhost 31000-32000 2>&1 | grep -o "[0-9]\{5\}"
 31046
 31518
@@ -267,7 +267,7 @@ nc -z localhost 31000-32000 2>&1 | grep -o "[0-9]\{5\}"
 ```
 * `2>&1`: nc reports to stderr. This changes it to stdin so grep can read it
 * Iterate `openssl s_client -p [port]`. 31518 and 31790 respond.
-```bash
+```shell
 openssl s_client localhost:31518
 Connecting to 127.0.0.1
 CONNECTED(00000003)
@@ -284,7 +284,7 @@ Wrong! Please enter the correct current password.
 closed
 ```
 * 31518 responds whatever it receives. Focus on 31790
-```bash
+```shell
 openssl s_client localhost:31790
 Connecting to 127.0.0.1
 CONNECTED(00000003)
@@ -292,7 +292,7 @@ CONNECTED(00000003)
 KEYUPDATE
 ```
 * Check `man openssl-s_client`
-```bash
+```shell
 openssl s_client -nocommands localhost:31790
 [lvl 16 password]
 Correct!
@@ -304,7 +304,7 @@ closed
 ``` 
 * **Why did it work?** The level 16 password starts with `k` which is interpreted as the `key update` command and the rest of the line is ignored.
 * To avoid entering in interactive mode we use the `-nocommands` flag
-```bash
+```shell
 exit
 
 echo "[pasted key]" >> key.private
@@ -319,18 +319,18 @@ cat /etc/bandit_pass/bandit17
 ```
 
 ### [17 -> 18](https://overthewire.org/wargames/bandit/bandit18.html)
-```bash
+```shell
 diff passwords.* -y --suppress-common-lines
 ```
 
 ### [18 -> 19](https://overthewire.org/wargames/bandit/bandit19.html)
-```bash
+```shell
 ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 ```
 * from `man ssh`: If a command is specified, it will be executed on the remote host instead of a login shell
 * When that happens, `ssh` opens a non-interactive shell
 * `.bashrc` contains a guard for non interactive shell:
-```bash
+```shell
 case $- in
     *i*) ;;
       *) return;;
