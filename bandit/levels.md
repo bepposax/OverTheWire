@@ -338,3 +338,15 @@ esac
 ```
 * that blocks the execution of the rest of the script, where the logout command is located
 * the command gets executed and the connection ends
+
+### [19 -> 20](https://overthewire.org/wargames/bandit/bandit20.html)
+```shell
+./bandit20-do
+Run a command as another user.
+  Example: ./bandit20-do whoami
+
+./bandit20-do whoami
+bandit20
+
+./bandit20-do cat /etc/bandit_pass/bandit20
+```
