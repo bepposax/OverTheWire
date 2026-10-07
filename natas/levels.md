@@ -18,10 +18,13 @@
 
 ### [2 -> 3](https://overthewire.org/wargames/natas/natas3.html)
 <http://natas2.natas.labs.overthewire.org>
+
 ![2](img/2.png)
+
 * There's an image in the files folder of the site. Navigate there by adding `/files` to the url
 
 ![files](img/2-files.png)
+
 * Open `users.txt` by adding `/files/users.txt` to the url
 
 <!-- ### [3 -> 4](https://overthewire.org/wargames/natas/natas4.html)
